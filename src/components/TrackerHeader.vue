@@ -24,7 +24,7 @@ export default {
 <template>
 	<header>
 		<h1>{{ title }}</h1>
-		<CustomButton text="Add Task" color="green" @on-click="addTask" />
+		<CustomButton text="Add Task" color="green" @on-click="$emit('onClick')" />
 		<CustomButton text="Log out" color="gray" @on-click="logOut" />
 	</header>
 </template>

@@ -23,7 +23,36 @@
 </template>
 
 <script>
-export default {}
+export default {
+	data() {
+		return {
+			text: '',
+			day: '',
+			reminder: false,
+		}
+	},
+	methods: {
+		onSubmit(e) {
+			e.preventDefault()
+			if (!this.text) {
+				alert('Please add a task')
+				return
+			}
+
+			const newTask = {
+				id: 244444,
+				text: this.text,
+				day: this.day,
+				reminder: this.reminder,
+			}
+			console.log('new task', newTask)
+			this.$emit('add-task', newTask)
+			this.text = ''
+			this.day = ''
+			this.remincer = false
+		},
+	},
+}
 </script>
 <style scoped>
 .add-form {

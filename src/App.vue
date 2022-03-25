@@ -12,6 +12,7 @@ export default {
 	data() {
 		return {
 			tasks: [],
+			showAddTask: false,
 		}
 	},
 	methods: {
@@ -26,6 +27,12 @@ export default {
 				task.id == id ? { ...task, reminder: !task.reminder } : task
 			)
 			console.log('reminder', id)
+		},
+		newTask(newTask) {
+			this.tasks = [...this.tasks, newTask]
+		},
+		addToggle() {
+			this.showAddTask = !this.showAddTask
 		},
 	},
 	created() {
@@ -50,13 +57,16 @@ export default {
 			},
 		]
 	},
+	emits: ['add-task', 'on-click'],
 }
 </script>
 
 <template>
 	<div class="container">
-		<TrackerHeader title="Task Tracker" />
-		<AddTask />
+		<TrackerHeader title="Task Tracker" @on-click="addToggle" />
+		<div v-show="showAddTask">
+			<AddTask @add-task="newTask" />
+		</div>
 		<Tasks
 			:tasks="tasks"
 			@delete-task="deleteTask"
