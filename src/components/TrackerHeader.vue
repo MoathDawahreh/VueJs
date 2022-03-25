@@ -28,9 +28,9 @@ export default {
 	<header>
 		<h1>{{ title }}</h1>
 		<CustomButton
-			:text="showAddTask ? 'Close' : 'Manage Tasks'"
+			:text="showAddTask ? 'Close' : 'Add Task'"
 			:color="showAddTask ? 'red' : 'green'"
-			@btn-click="$emit('manage-tasks')"
+			@btn-click="$emit('Add-task')"
 		/>
 		<CustomButton text="Log out" color="gray" @btn-click="$emit('log-out')" />
 	</header>

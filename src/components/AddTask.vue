@@ -40,12 +40,11 @@ export default {
 			}
 
 			const newTask = {
-				id: 244444,
+				// id: Math.floor(Math.random() * 100000),
 				text: this.text,
 				day: this.day,
 				reminder: this.reminder,
 			}
-			console.log('new task', newTask)
 			this.$emit('add-task', newTask)
 			this.text = ''
 			this.day = ''
