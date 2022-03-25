@@ -7,14 +7,17 @@ export default {
 			type: String,
 			default: 'Moath Task tracker',
 		},
+		showAddTask: {
+			type: Boolean,
+		},
 	},
 	components: {
 		CustomButton,
 	},
 	methods: {
-		logOut() {
-			console.log('log out clicked!')
-		},
+		// logOut() {
+		// 	console.log('log out clicked!')
+		// },
 		addTask() {
 			console.log('addtask clicked!')
 		},
@@ -24,8 +27,12 @@ export default {
 <template>
 	<header>
 		<h1>{{ title }}</h1>
-		<CustomButton text="Add Task" color="green" @on-click="$emit('onClick')" />
-		<CustomButton text="Log out" color="gray" @on-click="logOut" />
+		<CustomButton
+			:text="showAddTask ? 'Close' : 'Manage Tasks'"
+			:color="showAddTask ? 'red' : 'green'"
+			@btn-click="$emit('manage-tasks')"
+		/>
+		<CustomButton text="Log out" color="gray" @btn-click="$emit('log-out')" />
 	</header>
 </template>
 

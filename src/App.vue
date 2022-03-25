@@ -34,6 +34,9 @@ export default {
 		addToggle() {
 			this.showAddTask = !this.showAddTask
 		},
+		logOut() {
+			console.log('log out clicked!')
+		},
 	},
 	created() {
 		this.tasks = [
@@ -57,13 +60,18 @@ export default {
 			},
 		]
 	},
-	emits: ['add-task', 'on-click'],
+	// emits: ['add-task'],
 }
 </script>
 
 <template>
 	<div class="container">
-		<TrackerHeader title="Task Tracker" @on-click="addToggle" />
+		<TrackerHeader
+			title="Task Tracker"
+			@manage-tasks="addToggle"
+			@log-out="logOut"
+			:showAddTask="showAddTask"
+		/>
 		<div v-show="showAddTask">
 			<AddTask @add-task="newTask" />
 		</div>
@@ -111,7 +119,7 @@ body {
 	background: #000;
 	color: #fff;
 	border: none;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	margin: 5px;
 	border-radius: 5px;
 	cursor: pointer;

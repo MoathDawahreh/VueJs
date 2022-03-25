@@ -17,7 +17,11 @@ export default {
 </script>
 
 <template>
-	<button :style="{ background: color }" class="btn" @click="$emit('onClick')">
+	<button
+		:style="{ background: color }"
+		class="btn"
+		@click="$emit('btn-click')"
+	>
 		{{ text }}
 	</button>
 </template>
