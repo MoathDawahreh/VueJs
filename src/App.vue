@@ -1,11 +1,13 @@
 <script>
 import TrackerHeader from './components/TrackerHeader.vue'
 import Tasks from './components/Tasks.vue'
+import AddTask from './components/AddTask.vue'
 export default {
 	// name: 'App',
 	components: {
 		TrackerHeader,
 		Tasks,
+		AddTask,
 	},
 	data() {
 		return {
@@ -54,6 +56,7 @@ export default {
 <template>
 	<div class="container">
 		<TrackerHeader title="Task Tracker" />
+		<AddTask />
 		<Tasks
 			:tasks="tasks"
 			@delete-task="deleteTask"
